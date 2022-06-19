@@ -1,5 +1,4 @@
 <table class="home-cards">
-		
 		<?php
 		$sql= "SELECT recipename, username, description, image FROM cakes ";
 		$result = $conn-> query($sql);
@@ -12,7 +11,6 @@
 				<img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" />
 				</td></tr>
 				</div>
-				
 			<?php	
 			}
 			echo "</table>";
