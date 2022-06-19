@@ -5,17 +5,12 @@
 <?php
 require 'db_key.php';
 $conn = connect_db();
-
-
-
-
 session_start();
 if( !isset( $_SESSION['username']) ){
 echo "<big><strong><h1>You are not authorized to view this page. You need to login first, click <a href= 'loginForm.php'>here</a></big></strong><h1>";
 exit();
 }
 ?>
-
  <div class="menu-btn">
     <i class="fas fa-bars fa-2x"></i>
   </div>
@@ -25,18 +20,12 @@ exit();
     <nav class="main-nav">
 	<a href= 'homePage.php'>
       <img src="https://theluckycupcakecompany.com/wp-content/uploads/Lucky-Cupcake-Logo-Round-Cupcake.jpg" alt="Logo" class="logo"></a>
-
       <ul class="main-menu">
-
         <li><h2>Cakes and Desserts<h2></li>
-		
         <li><a href="homePage.php">Home</a></li>
         <li><a href="https://www.facebook.com/Loligatsu/">Share</a></li>
-		
         <li><a href="https://www.facebook.com/Loligatsu/">About us</a></li>
-		
       </ul>
-
       <ul class="right-menu">
         <li>
           <p>Welcome
@@ -50,9 +39,7 @@ exit();
 		echo $username;
 		?>
 		</a>
-		
             <i class="fas fa-shopping-cart"></i>
-          
         </li>
 		 <li>
           <a href="logout.php">Logout
@@ -61,7 +48,6 @@ exit();
         </li>
       </ul>
     </nav>
-
     <!-- Showcase -->
     <header class="showcase" >
       <h1>Life is too short to say no to cakes</h1>
@@ -72,10 +58,8 @@ exit();
         share a recipe <i class="fas fa-chevron-right"></i>
       </a>
     </header>
-
     <!-- Home cards 1 -->
     <section class="home-cards">
-	
 	 <?php
 		$sql= "SELECT recipename, username, description, image FROM cakes order by uploaded desc";
 		$result = $conn-> query($sql);
@@ -90,11 +74,9 @@ exit();
 		$x = $row["recipename"];
 				?>
 				<a href="view.php?recipename=<?php echo $x; ?>" class="btn">
-				
         View More <i class="fas fa-chevron-right"></i>
       </a>
 			</div>
-			
 				<?php	
 			}
 			echo "</table>";
@@ -104,10 +86,7 @@ exit();
 		}
 		$conn->close();
 		?>
-
-     
     </div>
-
       <footer class="footer">
         <div class="footer-inner">
           <div><i class="fas fa-globe fa-2x"></i> English (Philippines)</div>
@@ -122,18 +101,8 @@ exit();
 					<li><a href="#">&copy; Cakes and desserts</a></li>
           </ul>
         </div>
-		
-		
       </footer>
  <section class="follow">
-	  
-	 
-	  
-
-	  
-	  
-	  
-	  
         <p>Follow Cakes and desserts</p>
         <a href="https://www.facebook.com/Loligatsu/">
           <img src="https://i.ibb.co/LrVMXNR/social-fb.png" alt="Facebook">

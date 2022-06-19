@@ -5,40 +5,29 @@
 <?php
 require 'db_key.php';
 $conn = connect_db();
-
-
-
-
 session_start();
 if( !isset( $_SESSION['username']) ){
 echo "You are not authorized to view this page. Go <a href= 'loginForm.php'>Login</a>";
 exit();
 }
 ?>
-
  <div class="menu-btn">
     <i class="fas fa-bars fa-2x"></i>
   </div>
-
   <div class="container">
     <!-- Nav -->
     <nav class="main-nav">
 	<a href= 'homePage.php'>
       <img src="https://theluckycupcakecompany.com/wp-content/uploads/Lucky-Cupcake-Logo-Round-Cupcake.jpg" alt="Logo" class="logo"></a>
-
       <ul class="main-menu">
 	  <!--
 		<li><a href="#">Office</a></li>
         <li><a href="#">Windows</a></li>-->
-        <li><h2>Cakes and Desserts<h2></li>
-		
+        <li><h2>Cakes and Desserts<h2></li>	
         <li><a href="homePage.php">Home</a></li>
         <li><a href="#">Share</a></li>
-		
-        <li><a href="#">About us</a></li>
-		
+        <li><a href="#">About us</a></li>		
       </ul>
-
       <ul class="right-menu">
         <li>
           <p>Welcome
@@ -46,15 +35,13 @@ exit();
           </p>
         </li>
         <li big strong>
-		
        <a href="profile.php">
         <?php 
 		$username = $_SESSION['username'];
 		echo $username;
 		?>
 		</a>
-            <i class="fas fa-shopping-cart"></i>
-          
+            <i class="fas fa-shopping-cart"></i>       
         </li>
 		 <li>
           <a href="logout.php">Logout
@@ -63,27 +50,19 @@ exit();
         </li>
       </ul>
     </nav>
-
     <!-- Showcase -->
     <header class="showcase">
-      <h1>
-	  
+      <h1>	  
 	  <?php
 	  $sql = "Select simplycoding_user.id from simplycoding_user Where username = '$username'";
 		#$result = mysqli_query($conn, $sql);
 		#id = mysqli_fetch_assoc($result);
 		$sql = $conn->query($sql);
 		$id = $sql->fetch_assoc();
-		$id = $id["id"];
-		
-		
+		$id = $id["id"];	
 		echo  " " .$username;
 		?>
-
 	  </h1>
-	  
-	 
-	  
       <h2>
         <?php
 	  echo  "#" . $id;
@@ -93,10 +72,8 @@ exit();
         Edit Profile <i class="fas fa-chevron-right"></i>
       </a>
     </header>
-
     <!-- Home cards 1 -->
     <section class="home-cards">
-	
 	 <?php
 		$sql= "SELECT recipename, username, description, image FROM cakes WHERE username = '$username' order by uploaded desc";
 		$result = $conn-> query($sql);
@@ -114,8 +91,7 @@ exit();
 				      <a href="editForm.php?recipename=<?php echo $x; ?>" class="btn">
         Edit <i class="fas fa-chevron-right"></i>
       </a>
-			</div>
-			
+			</div>	
 				<?php	
 			}
 			echo "</table>";
@@ -125,16 +101,9 @@ exit();
 		}
 		$conn->close();
 		?>
-	
-	
 	   </div>
-      
-
       <footer class="footer">
         <div class="footer-inner">
-		
-		
-		
           <div><i class="fas fa-globe fa-2x"></i> English (Philippines)</div>
           <ul>
             <li><a href="#">Sitemap</a></li>

@@ -33,8 +33,6 @@ echo "Email already exist. You may <a href= 'loginForm.php'>Try again</a>";
 				exit();
 exit();
 }
-
-
 else{
 $sql = "Insert Into simplycoding_user (username, email, password) VALUES ('$username', '$email', '$passwordHashed')";
 $sql = $conn->query($sql);

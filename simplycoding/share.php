@@ -10,18 +10,14 @@ if(isset($_POST['share']) ){
 		
 				echo "Insufficient Information. You may <a href= 'shareform.php'>Go Back</a> now";
 				exit();
-			}  else {
-			
+			}  else {		
 	$recipename = $_POST['recipename'];
 $description = $_POST['description'];
 	$ingredients = $_POST['ingredients'];
 $directions = $_POST['directions'];
-
-
 //get img info
 	 $fileName = basename($_FILES["image"]["name"]); 
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
-         
         // Allow certain file formats 
         $allowTypes = array('jpg','png','jpeg','gif'); 
         if(in_array($fileType, $allowTypes)){ 
@@ -31,8 +27,6 @@ $directions = $_POST['directions'];
             // Insert image content into database 
         //    $insert = $db->query("INSERT into images (image, uploaded) VALUES ('$imgContent', NOW())"); 
 		}
-
-
 			}	
 //sanitize your input
 
@@ -45,24 +39,13 @@ $directions = $_POST['directions'];
 		$sql = $conn->query($sql);
 		$id = $sql->fetch_assoc();
 		$id = $id["id"];
-
-
 //insert values
 $sql = "Insert Into cakes (recipename, description, ingredients, directions, image, id, username,uploaded) VALUES ('$recipename', '$description', '$ingredients','$directions', '$imgContent', '$id','$username',NOW())";
 $sql = $conn->query($sql);
-
-
 if($sql){
 header('location: homePage.php');
-
 //header('location: index.php');
 }
-
-
-
-			
-
-
 }else if(isset($_POST['login']) ){
 $username = $_POST['username'];
 $password = $_POST['password'];

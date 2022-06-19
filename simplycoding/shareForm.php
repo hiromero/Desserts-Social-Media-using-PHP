@@ -4,47 +4,30 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Share a recipe</title>
-
 	</head>
-
-	
-	
-	
-	
 	<body>
 		<?php
 		session_start();
 	?>
-	
-		
 		<div class="container">
   <div class="title">
-  
   <nav class="main-nav">
   <a href= 'homePage.php'>
  <img src="https://theluckycupcakecompany.com/wp-content/uploads/Lucky-Cupcake-Logo-Round-Cupcake.jpg" alt="Logo" class="logo"></a>
-
       <ul class="main-menu">
 	  <!--
 		<li><a href="#">Office</a></li>
         <li><a href="#">Windows</a></li>-->
-        <li><h2>Cakes and Desserts<h2></li>
-		
+        <li><h2>Cakes and Desserts<h2></li>	
         <li><a href="homePage.php">Home</a></li>
-	
         <li><a href="#">Share</a></li>
-		
         <li><a href="#">About us</a></li>
-		
       </ul>
-
-      <ul class="right-menu">
-      
+      <ul class="right-menu"> 
         <li big strong>
         <?php 
 	require 'db_key.php';
 	$conn = connect_db();
-	
 		$username = $_SESSION['username'];
 		$sql = "Select simplycoding_user.id from simplycoding_user Where username = '$username'";
 		#$result = mysqli_query($conn, $sql);
@@ -52,7 +35,6 @@
 		$sql = $conn->query($sql);
 		$id = $sql->fetch_assoc();
 		$id = $id["id"];
-		
 		echo  "#" . $id;
 		echo  " " .$username;
 		?>
